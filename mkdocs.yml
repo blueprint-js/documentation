@@ -47,6 +47,6 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/xpyxel/blueprint
+      link: https://github.com/blueprint-js/blueprint
     - icon: fontawesome/brands/discord
       link: https://discord.gg/BEV79hWmkA
