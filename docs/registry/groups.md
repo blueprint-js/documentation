@@ -23,7 +23,7 @@ bot.registry.groups.register('groupName', {
 You can also undefine or remove groups by using the `.unregister()` method likewise
 
 ```ts
-bot.registry.groups.register('groupName');
+bot.registry.groups.unregister('groupName');
 ```
 
 ## Inheritance
