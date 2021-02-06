@@ -1,50 +1,40 @@
 # Commands
 
-Blueprint uses 2 seperate things for commands, this is to manage the
-complexity that comes with having a custom-built command system, the two things
-are a `Command` decorator, and a `Executor` interface. Each providing a important
-part of a command. The `Command` decorator is used to set the metadata of the command
-such as it's name, aliases, and groups, while the `Executor` interface enforces the
-`callback` method used to execute the command.
+Blueprint uses a `Command` class to manage the implementation of commands, for things such as the command's
+meta, a `super()` call with the meta of the command, such as the name, groups, aliases, and guards must be used.
+An example of creating a command can be seen below in the **Creating Commands** section. Note that this is a breaking
+change from the old pre-2.4.0 decorator method.
 
-## `Command` Decorator
+## Guards
 
-The `Command` decorator is used to set the metadata of a command, and consists of
-3 required fields: `name`, `aliases`, and `groups`. An example of the use of the decorator
-can be seen below with an explanation of each field, and why they are required.
+Guards a way to add pre-checks to commands. They are simply functions that take the message context and a reference to
+the blueprint instance and return a boolean. In order for a command using guards to execute, **all checks must return true**.
 
 ```ts
-@Command({
-  // used to set the name in the command registry and check against when executing
-  name: '',
-  // used to check against when executing, similar to name
-  aliases: [],
-  // the command registry checks if a user is in any of these groups
-  groups: [],
-})
+import {Guard, BaseConfig} from '@dxz/blueprint';
+import {GuildChannel} from 'eris';
+
+const isNsfw: Guard<BaseConfig> = ctx => {
+  if ((ctx.channel as GuildChannel).nsfw) return true;
+  else return false;
+};
+
 ```
-
-## `Executor` Interface
-
-The `Executor` interface is used to enforce the `callback` method of command classes, all
-commands **must** have the `callback` method in order to be a valid command, and must loosely follow
-the signature `callback(ctx: Message, args: string[], ref: Blueprint): void` in order to be functional. However, the
-the method can be async.
 
 ## Creating Commands
 
-Commands are classes implementing the `Executor` interface, and decorated by the `Command`
-decorator. In specific, the `Command` decorator consists of an object with 3 keys: `name` which
-is a string containing the command's primary alias, `aliases` which is an array of alternate names,
-and `groups` which is an array of group names, that you have defined using the [group registry](registry/groups.md).
+Commands are classes extending the abstract `Command` class, to set up a command you need to use the `super()` method to assign
+the command's meta information, then implement the abstract `callback` method with the functionality of the command.
 
 ```ts
-@Command({
-  name: 'ping',
-  aliases: ['latency', 'lag'],
-  groups: ['user'],
-})
-export class PingCommand implements Executor {
+export class PingCommand extends Command {
+  constructor() {
+    super('ping', {
+      aliases: ['latency', 'lag'],
+      groups: ['user'],
+      guards: [],
+    });
+  }
   async callback(ctx: Message, args: string[], ref: Blueprint) {
     const startTime = Date.now();
     const msg = await ctx.channel.createMessage('loading...');
