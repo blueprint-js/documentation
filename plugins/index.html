@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://xpyxel.github.io/blueprint/commands/">
+        <link rel="canonical" href="https://xpyxel.github.io/blueprint/plugins/">
       
       <link rel="shortcut icon" href="../img/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
     
     
       
-        <title>Commands - Blueprint</title>
+        <title>Plugins - Blueprint</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#commands" class="md-skip">
+        <a href="#plugins" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Commands
+              Plugins
             
           </span>
         </div>
@@ -363,56 +363,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Commands
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
         Commands
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#guards" class="md-nav__link">
-    Guards
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-commands" class="md-nav__link">
-    Creating Commands
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -453,11 +408,56 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../plugins/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Plugins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Plugins
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-plugins" class="md-nav__link">
+    Creating Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hooking-into-plugins" class="md-nav__link">
+    Hooking Into Plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -502,15 +502,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#guards" class="md-nav__link">
-    Guards
+  <a href="#creating-plugins" class="md-nav__link">
+    Creating Plugins
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-commands" class="md-nav__link">
-    Creating Commands
+  <a href="#hooking-into-plugins" class="md-nav__link">
+    Hooking Into Plugins
   </a>
   
 </li>
@@ -528,39 +528,30 @@
               
                 
                 
-                <h1 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">#</a></h1>
-<p>Blueprint uses a <code>Command</code> class to manage the implementation of commands, for things such as the command's
-meta, a <code>super()</code> call with the meta of the command, such as the name, groups, aliases, and guards must be used.
-An example of creating a command can be seen below in the <strong>Creating Commands</strong> section. Note that this is a breaking
-change from the old pre-2.4.0 decorator method.</p>
-<h2 id="guards">Guards<a class="headerlink" href="#guards" title="Permanent link">#</a></h2>
-<p>Guards a way to add pre-checks to commands. They are simply functions that take the message context and a reference to
-the blueprint instance and return a boolean. In order for a command using guards to execute, <strong>all checks must return true</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span><span class="nx">Guard</span><span class="p">,</span> <span class="nx">BaseConfig</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@dxz/blueprint&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">GuildChannel</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;eris&#39;</span><span class="p">;</span>
+                <h1 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">#</a></h1>
+<p>Blueprint uses a plugin system to group commands together, this also allows the ability
+to allow multiple commands to share the same group(s) without having to manually specify
+the groups on every single command. Plugins at the lowest level extend the <code>AutoRegistry</code>
+class, and act similar to the old command registry.</p>
+<h2 id="creating-plugins">Creating Plugins<a class="headerlink" href="#creating-plugins" title="Permanent link">#</a></h2>
+<p>Creating a plugin is extremely simple, you just need to create a new instance of the <code>Plugin</code>
+class, pasing the metadata such as the name of the plugin and optionally the groups you want
+the commands inside of it to inherit.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span><span class="nx">Plugin</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@dxz/blueprint&#39;</span><span class="p">;</span>
 
-<span class="kd">const</span> <span class="nx">isNsfw</span>: <span class="kt">Guard</span><span class="o">&lt;</span><span class="nx">BaseConfig</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">ctx</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">((</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">channel</span> <span class="kr">as</span> <span class="nx">GuildChannel</span><span class="p">).</span><span class="nx">nsfw</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="k">else</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="kd">const</span> <span class="nx">adminPlugin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Plugin</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+  <span class="nx">groups</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;developer&#39;</span><span class="p">],</span>
+<span class="p">});</span>
+
+<span class="nx">adminPlugin</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="k">new</span> <span class="nx">EvalCommand</span><span class="p">());</span>
 </code></pre></div>
-<h2 id="creating-commands">Creating Commands<a class="headerlink" href="#creating-commands" title="Permanent link">#</a></h2>
-<p>Commands are classes extending the abstract <code>Command</code> class, to set up a command you need to use the <code>super()</code> method to assign
-the command's meta information, then implement the abstract <code>callback</code> method with the functionality of the command.</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">PingCommand</span> <span class="k">extends</span> <span class="nx">Command</span> <span class="p">{</span>
-  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="s1">&#39;ping&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">aliases</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;latency&#39;</span><span class="p">,</span> <span class="s1">&#39;lag&#39;</span><span class="p">],</span>
-      <span class="nx">groups</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
-      <span class="nx">guards</span><span class="o">:</span> <span class="p">[],</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-  <span class="k">async</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">ctx</span>: <span class="kt">Message</span><span class="p">,</span> <span class="nx">args</span>: <span class="kt">string</span><span class="p">[],</span> <span class="nx">ref</span>: <span class="kt">Blueprint</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">startTime</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
-    <span class="kd">const</span> <span class="nx">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">channel</span><span class="p">.</span><span class="nx">createMessage</span><span class="p">(</span><span class="s1">&#39;loading...&#39;</span><span class="p">);</span>
-    <span class="nx">msg</span><span class="p">.</span><span class="nx">edit</span><span class="p">(</span><span class="s1">&#39;The current ping is `&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">startTime</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;ms`&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<h2 id="hooking-into-plugins">Hooking Into Plugins<a class="headerlink" href="#hooking-into-plugins" title="Permanent link">#</a></h2>
+<p>Due to plugins extending the <code>AutoRegistry</code> class, they are hookable by default. This means you
+can use <a href="./">hooks</a> to hook into them and get debug information from them at runtime. Note
+that hooking into plugins is extremely experimental and isn't garunteed to work.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">h</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Hook</span><span class="p">((</span><span class="nx">r</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">r</span><span class="p">));</span>
+<span class="nx">h</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">adminPlugin</span><span class="p">);</span>
 </code></pre></div>
                 
               
@@ -580,7 +571,7 @@ the command's meta information, then implement the abstract <code>callback</code
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../registry/data/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../permissions/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -589,19 +580,19 @@ the command's meta information, then implement the abstract <code>callback</code
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Data
+                Permissions
               </div>
             </div>
           </a>
         
         
-          <a href="../extensions/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../hooks/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Extensions
+                Hooks
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

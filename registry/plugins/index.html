@@ -11,21 +11,21 @@
       
       
       
-        <link rel="canonical" href="https://xpyxel.github.io/blueprint/commands/">
+        <link rel="canonical" href="https://xpyxel.github.io/blueprint/registry/plugins/">
       
-      <link rel="shortcut icon" href="../img/favicon.png">
+      <link rel="shortcut icon" href="../../img/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
     
     
       
-        <title>Commands - Blueprint</title>
+        <title>Plugins - Blueprint</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
         
           
           
@@ -44,7 +44,7 @@
     
     
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
     
       
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#commands" class="md-skip">
+        <a href="#plugin-registry" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Commands
+              Plugins
             
           </span>
         </div>
@@ -180,7 +180,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -217,7 +217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/discord/" class="md-nav__link">
+      <a href="../../config/discord/" class="md-nav__link">
         Discord
       </a>
     </li>
@@ -229,7 +229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/logging/" class="md-nav__link">
+      <a href="../../config/logging/" class="md-nav__link">
         Logging
       </a>
     </li>
@@ -241,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/database/" class="md-nav__link">
+      <a href="../../config/database/" class="md-nav__link">
         Database
       </a>
     </li>
@@ -253,7 +253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/extensions/" class="md-nav__link">
+      <a href="../../config/extensions/" class="md-nav__link">
         Extending
       </a>
     </li>
@@ -265,7 +265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/parsers/" class="md-nav__link">
+      <a href="../../config/parsers/" class="md-nav__link">
         Parsers
       </a>
     </li>
@@ -284,12 +284,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
       
       <label class="md-nav__link" for="nav-3">
         Registry
@@ -308,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../registry/groups/" class="md-nav__link">
+      <a href="../groups/" class="md-nav__link">
         Groups
       </a>
     </li>
@@ -320,7 +322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../registry/events/" class="md-nav__link">
+      <a href="../events/" class="md-nav__link">
         Events
       </a>
     </li>
@@ -330,11 +332,56 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../registry/plugins/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Plugins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Plugins
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-plugins" class="md-nav__link">
+    Creating Plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registering-plugins" class="md-nav__link">
+    Registering Plugins
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -344,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../registry/data/" class="md-nav__link">
+      <a href="../data/" class="md-nav__link">
         Data
       </a>
     </li>
@@ -363,56 +410,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Commands
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../commands/" class="md-nav__link">
         Commands
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#guards" class="md-nav__link">
-    Guards
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-commands" class="md-nav__link">
-    Creating Commands
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -425,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extensions/" class="md-nav__link">
+      <a href="../../extensions/" class="md-nav__link">
         Extensions
       </a>
     </li>
@@ -440,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../permissions/" class="md-nav__link">
+      <a href="../../permissions/" class="md-nav__link">
         Permissions
       </a>
     </li>
@@ -455,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plugins/" class="md-nav__link">
+      <a href="../../plugins/" class="md-nav__link">
         Plugins
       </a>
     </li>
@@ -470,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hooks/" class="md-nav__link">
+      <a href="../../hooks/" class="md-nav__link">
         Hooks
       </a>
     </li>
@@ -502,15 +504,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#guards" class="md-nav__link">
-    Guards
+  <a href="#creating-plugins" class="md-nav__link">
+    Creating Plugins
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-commands" class="md-nav__link">
-    Creating Commands
+  <a href="#registering-plugins" class="md-nav__link">
+    Registering Plugins
   </a>
   
 </li>
@@ -528,39 +530,23 @@
               
                 
                 
-                <h1 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">#</a></h1>
-<p>Blueprint uses a <code>Command</code> class to manage the implementation of commands, for things such as the command's
-meta, a <code>super()</code> call with the meta of the command, such as the name, groups, aliases, and guards must be used.
-An example of creating a command can be seen below in the <strong>Creating Commands</strong> section. Note that this is a breaking
-change from the old pre-2.4.0 decorator method.</p>
-<h2 id="guards">Guards<a class="headerlink" href="#guards" title="Permanent link">#</a></h2>
-<p>Guards a way to add pre-checks to commands. They are simply functions that take the message context and a reference to
-the blueprint instance and return a boolean. In order for a command using guards to execute, <strong>all checks must return true</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="p">{</span><span class="nx">Guard</span><span class="p">,</span> <span class="nx">BaseConfig</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@dxz/blueprint&#39;</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">GuildChannel</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;eris&#39;</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">isNsfw</span>: <span class="kt">Guard</span><span class="o">&lt;</span><span class="nx">BaseConfig</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">ctx</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">((</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">channel</span> <span class="kr">as</span> <span class="nx">GuildChannel</span><span class="p">).</span><span class="nx">nsfw</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="k">else</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-<span class="p">};</span>
+                <h1 id="plugin-registry">Plugin Registry<a class="headerlink" href="#plugin-registry" title="Permanent link">#</a></h1>
+<p>Blueprint uses a registry to manage plugins similar to groups, and events.
+It is faily simple to register plugins, as you only need to pass the plugin
+instance itself, and everything else will be handled internally. Similar to
+other registries, the plugin registry can also be hooked.</p>
+<h2 id="creating-plugins">Creating Plugins<a class="headerlink" href="#creating-plugins" title="Permanent link">#</a></h2>
+<p>For more information on plugins and how to create them read the <a href="../../plugins/">plugins</a> page.
+Plugins are fairly simple to use, but due to them not being a registry in a sense, they don't fall
+under the registries section, so it's best to read the page about them.</p>
+<h2 id="registering-plugins">Registering Plugins<a class="headerlink" href="#registering-plugins" title="Permanent link">#</a></h2>
+<p>Unlike the other registries, the plugin registry only takes a single value whern registering them, which
+is the instance of the <code>Plugin</code> class itself. Everything else is handled internally by accessing the plugin's
+<code>meta</code> property which is set when creating a new plugin instance.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">bot</span><span class="p">.</span><span class="nx">registry</span><span class="p">.</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">adminPlugin</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="creating-commands">Creating Commands<a class="headerlink" href="#creating-commands" title="Permanent link">#</a></h2>
-<p>Commands are classes extending the abstract <code>Command</code> class, to set up a command you need to use the <code>super()</code> method to assign
-the command's meta information, then implement the abstract <code>callback</code> method with the functionality of the command.</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="kd">class</span> <span class="nx">PingCommand</span> <span class="k">extends</span> <span class="nx">Command</span> <span class="p">{</span>
-  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">super</span><span class="p">(</span><span class="s1">&#39;ping&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nx">aliases</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;latency&#39;</span><span class="p">,</span> <span class="s1">&#39;lag&#39;</span><span class="p">],</span>
-      <span class="nx">groups</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
-      <span class="nx">guards</span><span class="o">:</span> <span class="p">[],</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-  <span class="k">async</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">ctx</span>: <span class="kt">Message</span><span class="p">,</span> <span class="nx">args</span>: <span class="kt">string</span><span class="p">[],</span> <span class="nx">ref</span>: <span class="kt">Blueprint</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">startTime</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
-    <span class="kd">const</span> <span class="nx">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">channel</span><span class="p">.</span><span class="nx">createMessage</span><span class="p">(</span><span class="s1">&#39;loading...&#39;</span><span class="p">);</span>
-    <span class="nx">msg</span><span class="p">.</span><span class="nx">edit</span><span class="p">(</span><span class="s1">&#39;The current ping is `&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">startTime</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;ms`&#39;</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<p>Like other registries, you can unregister plugins by using the <code>unregister()</code> method with the name of the plugin.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">bot</span><span class="p">.</span><span class="nx">registry</span><span class="p">.</span><span class="nx">plugins</span><span class="p">.</span><span class="nx">unregister</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">);</span>
 </code></pre></div>
                 
               
@@ -580,7 +566,7 @@ the command's meta information, then implement the abstract <code>callback</code
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../registry/data/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../events/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -589,19 +575,19 @@ the command's meta information, then implement the abstract <code>callback</code
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Data
+                Events
               </div>
             </div>
           </a>
         
         
-          <a href="../extensions/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../data/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Extensions
+                Data
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -654,15 +640,15 @@ the command's meta information, then implement the abstract <code>callback</code
       
     </div>
     
-      <script src="../assets/javascripts/vendor.53cc9318.min.js"></script>
-      <script src="../assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/vendor.53cc9318.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
-          base: "..",
+          base: "../..",
           features: ['navigation.instant'],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

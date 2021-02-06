@@ -393,8 +393,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/" class="md-nav__link">
-        Commands
+      <a href="../plugins/" class="md-nav__link">
+        Plugins
       </a>
     </li>
   
@@ -458,6 +458,21 @@
     <li class="md-nav__item">
       <a href="../../permissions/" class="md-nav__link">
         Permissions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/" class="md-nav__link">
+        Plugins
       </a>
     </li>
   
@@ -560,7 +575,7 @@ notation strings (for example, <code>messages.read</code>) to define permssions 
 <span class="p">});</span>
 </code></pre></div>
 <p>You can also undefine or remove groups by using the <code>.unregister()</code> method likewise</p>
-<div class="highlight"><pre><span></span><code><span class="nx">bot</span><span class="p">.</span><span class="nx">registry</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">&#39;groupName&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">bot</span><span class="p">.</span><span class="nx">registry</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">unregister</span><span class="p">(</span><span class="s1">&#39;groupName&#39;</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">#</a></h2>
 <p>Blueprint allows groups to inherit the permissions and overrides of other groups, creating
