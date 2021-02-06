@@ -31,11 +31,11 @@ nav:
   - Registry:
     - Groups: registry/groups.md
     - Events: registry/events.md
-    - Commands: registry/commands.md
     - Data: registry/data.md
   - Commands: commands.md
   - Extensions: extensions.md
   - Permissions: permissions.md
+  - Plugins: plugins.md
   - Hooks: hooks.md
 
 markdown_extensions:
