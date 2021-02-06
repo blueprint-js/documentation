@@ -36,6 +36,7 @@ nav:
   - Commands: commands.md
   - Extensions: extensions.md
   - Permissions: permissions.md
+  - Hooks: hooks.md
 
 markdown_extensions:
   - admonition
