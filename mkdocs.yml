@@ -31,6 +31,7 @@ nav:
   - Registry:
     - Groups: registry/groups.md
     - Events: registry/events.md
+    - Plugins: registry/plugins.md
     - Data: registry/data.md
   - Commands: commands.md
   - Extensions: extensions.md
