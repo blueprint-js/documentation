@@ -8,7 +8,7 @@ to use the `Hook` class to manage hooks.
 ## Binding Hooks
 
 The act of 'binding' a hook binds a callback to a registry to get debug information this is done
-via the `Hook` class, in an instance, an example of how to create and bind hooks can be seen below, 
+via the `Hook` class, in an instance, an example of how to create and bind hooks can be seen below,
 note that hooking a lot of things can and will spam your console with messages and data if you log everything.
 
 ```ts
