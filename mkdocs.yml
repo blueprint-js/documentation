@@ -8,8 +8,9 @@ theme:
   custom_dir: overrides
   favicon: img/favicon.png
   palette:
-    primary: light blue
-    accent: light blue
+    primary: blue
+    accent: teal
+    scheme: slate
   font:
     text: Open Sans
     code: JetBrains Mono
