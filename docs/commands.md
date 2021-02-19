@@ -41,3 +41,33 @@ export class PingCommand extends Command {
   }
 }
 ```
+
+## Handling Guard Failures
+
+When any guard in a command returns `false` from it's `passed` property in a result, an optional `fail` callback is called that
+can be defined on the meta of a command within the `super` call. If this callback is not defined, the command will simply ignore
+the failure and refuse to execute with no sign of failure. The `fail` gives 2 parameters, a context to the message that activated
+the command, and an array of results (both failed and passing).
+
+```ts
+class NsfwCommand extends Command<BaseConfig> {
+  constructor() {
+    super('nsfw', {
+      aliases: ['lewd', 'pics'],
+      groups: ['user'],
+      guards: [isNsfw],
+      fail: (r, c) => {
+        const res = r.filter(gr => gr.passed === false);
+        c.msg.channel.createMessage(
+          `Guards failed with messages: \`\`\`${res
+            .map(gr => gr.message)
+            .join('\n')}\`\`\``
+        );
+      },
+    });
+  }
+  callback(ctx: CommandContext<BaseConfig>): void {
+    // normal command stuff here
+  }
+}
+```
