@@ -44,7 +44,8 @@ nav:
 
 markdown_extensions:
   - admonition
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      linenums: true
   - pymdownx.superfences
   - toc:
       permalink: '#'
