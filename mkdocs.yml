@@ -10,7 +10,7 @@ theme:
   palette:
     primary: blue
     accent: teal
-    scheme: slate
+    scheme: preference
   font:
     text: Open Sans
     code: JetBrains Mono
