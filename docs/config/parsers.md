@@ -9,7 +9,9 @@ JSON parser used when no parser is provided.
 ```ts
 import {parse as parser} from 'yaml';
 
-const bot = new Blueprint('config.yml', {parser});
+const bot = new Blueprint('config.yml', {
+  config: {parser, encoding: 'utf-8'},
+});
 ```
 
 ## Important Notes
