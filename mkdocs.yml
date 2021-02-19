@@ -1,5 +1,5 @@
 site_name: Blueprint
-site_url: https://xpyxel.github.io/blueprint
+site_url: https://blueprint.js.org/
 copyright: Blueprint is licensed under the <a href="https://github.com/xpyxel/blueprint/blob/main/LICENSE">Mozilla Public License v2</a>.
 site_description: A modern, powerful, experimental, and modular Discord bot framework.
 
@@ -8,11 +8,11 @@ theme:
   custom_dir: overrides
   favicon: img/favicon.png
   palette:
-    primary: black
+    primary: light blue
     accent: light blue
   font:
-    text: Noto Sans
-    code: Fira Mono
+    text: Open Sans
+    code: JetBrains Mono
   icon:
     logo: blueprint/blueprint
   features:
