@@ -1,6 +1,6 @@
 # Blueprint
 
-![logo](https://i.imgur.com/R88zxRw.png)
+![logo](img/logo.png)
 
 A modern, powerful, experimental, and modular Discord bot framework
 
