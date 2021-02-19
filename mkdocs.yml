@@ -1,6 +1,6 @@
 site_name: Blueprint
 site_url: https://blueprint.js.org/
-copyright: Blueprint is licensed under the <a href="https://github.com/xpyxel/blueprint/blob/main/LICENSE">Mozilla Public License v2</a>.
+copyright: Blueprint is licensed under the <a href="https://github.com/blueprint-js/blueprint/blob/main/LICENSE">Mozilla Public License v2</a>.
 site_description: A modern, powerful, experimental, and modular Discord bot framework.
 
 theme:
