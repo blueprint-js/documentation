@@ -31,6 +31,7 @@ nav:
     - Database: config/database.md
     - Extending: config/extensions.md
     - Parsers: config/parsers.md
+    - Prefixes: config/prefixes.md
   - Registry:
     - Groups: registry/groups.md
     - Events: registry/events.md
