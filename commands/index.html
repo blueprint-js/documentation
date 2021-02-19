@@ -449,6 +449,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#handling-guard-failures" class="md-nav__link">
+    Handling Guard Failures
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -555,6 +562,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#handling-guard-failures" class="md-nav__link">
+    Handling Guard Failures
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -623,6 +637,52 @@ the command's meta information, then implement the abstract <code>callback</code
     <span class="kd">const</span> <span class="nx">startTime</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
     <span class="kd">const</span> <span class="nx">msg</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">channel</span><span class="p">.</span><span class="nx">createMessage</span><span class="p">(</span><span class="s1">&#39;loading...&#39;</span><span class="p">);</span>
     <span class="nx">msg</span><span class="p">.</span><span class="nx">edit</span><span class="p">(</span><span class="s1">&#39;The current ping is `&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">startTime</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;ms`&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="handling-guard-failures">Handling Guard Failures<a class="headerlink" href="#handling-guard-failures" title="Permanent link">#</a></h2>
+<p>When any guard in a command returns <code>false</code> from it's <code>passed</code> property in a result, an optional <code>fail</code> callback is called that
+can be defined on the meta of a command within the <code>super</code> call. If this callback is not defined, the command will simply ignore
+the failure and refuse to execute with no sign of failure. The <code>fail</code> gives 2 parameters, a context to the message that activated
+the command, and an array of results (both failed and passing).</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nx">NsfwCommand</span> <span class="k">extends</span> <span class="nx">Command</span><span class="o">&lt;</span><span class="nx">BaseConfig</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="s1">&#39;nsfw&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">aliases</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;lewd&#39;</span><span class="p">,</span> <span class="s1">&#39;pics&#39;</span><span class="p">],</span>
+      <span class="nx">groups</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
+      <span class="nx">guards</span><span class="o">:</span> <span class="p">[</span><span class="nx">isNsfw</span><span class="p">],</span>
+      <span class="nx">fail</span><span class="o">:</span> <span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">gr</span> <span class="o">=&gt;</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">passed</span> <span class="o">===</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="nx">c</span><span class="p">.</span><span class="nx">msg</span><span class="p">.</span><span class="nx">channel</span><span class="p">.</span><span class="nx">createMessage</span><span class="p">(</span>
+          <span class="sb">`Guards failed with messages: \`\`\`</span><span class="si">${</span><span class="nx">res</span>
+            <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">gr</span> <span class="o">=&gt;</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+            <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">\`\`\``</span>
+        <span class="p">);</span>
+      <span class="p">},</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+  <span class="nx">callback</span><span class="p">(</span><span class="nx">ctx</span>: <span class="kt">CommandContext</span><span class="o">&lt;</span><span class="nx">BaseConfig</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="c1">// normal command stuff here</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
