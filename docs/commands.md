@@ -8,17 +8,16 @@ change from the old pre-2.4.0 decorator method.
 ## Guards
 
 Guards a way to add pre-checks to commands. They are simply functions that take the message context and a reference to
-the blueprint instance and return a boolean. In order for a command using guards to execute, **all checks must return true**.
+the blueprint instance and return a `GuardResult` type. In order for a command using guards to execute, **all guards must pass**.
 
 ```ts
 import {Guard, BaseConfig} from '@dxz/blueprint';
 import {GuildChannel} from 'eris';
 
 const isNsfw: Guard<BaseConfig> = ctx => {
-  if ((ctx.channel as GuildChannel).nsfw) return true;
-  else return false;
+  if ((ctx.channel as GuildChannel).nsfw) return {passed: true};
+  else return {passed: false, message: "The channel is not marked as NSFW"};
 };
-
 ```
 
 ## Creating Commands
@@ -30,14 +29,14 @@ the command's meta information, then implement the abstract `callback` method wi
 export class PingCommand extends Command {
   constructor() {
     super('ping', {
-      aliases: ['latency', 'lag'],
+      aliases: ['latency', 'lag'],  
       groups: ['user'],
       guards: [],
     });
   }
-  async callback(ctx: Message, args: string[], ref: Blueprint) {
+  async callback(ctx: CommandContext<BaseConfig>) {
     const startTime = Date.now();
-    const msg = await ctx.channel.createMessage('loading...');
+    const msg = await ctx.message.channel.createMessage('loading...');
     msg.edit('The current ping is `' + (Date.now() - startTime) + 'ms`');
   }
 }
