@@ -1,67 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://blueprint.js.org/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/config/discord/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/config/logging/</loc>
-     <lastmod>2021-02-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://blueprint.js.org/config/database/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/config/extensions/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/config/parsers/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/config/prefixes/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/registry/groups/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/registry/events/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/registry/plugins/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/registry/data/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/commands/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/extensions/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/permissions/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/plugins/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://blueprint.js.org/hooks/</loc>
-     <lastmod>2021-02-19</lastmod>
+     <lastmod>2021-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
